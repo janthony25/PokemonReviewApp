@@ -17,6 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
 if (args.Length == 1 && args[0].ToLower() == "seeddata")
